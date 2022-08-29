@@ -34,7 +34,11 @@ public class WeatherService {
     }
 
     public Flux<Weather> findByDegrees(Integer dergees) {
-        return Flux.fromStream(weathers.values().stream().filter(city -> city.getTemperature() > dergees));
+        return Flux.fromStream(weathers
+                .values()
+                .stream()
+                .filter(city -> city.getTemperature() > dergees)
+        );
     }
 
     public Mono<Weather> findHottest() {
